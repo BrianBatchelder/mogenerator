@@ -58,7 +58,7 @@ class _<$managedObjectClassName$>: <$customSuperentity$> {
 <$if Attribute.hasDefinedAttributeType$>
 <$if Attribute.hasScalarAttributeType$>
 <$if Attribute.isReadonly$>
-    public var <$Attribute.name$>: NSNumber?
+    public var <$Attribute.name$>: NSNumber<$if Attribute.isOptional$>?<$endif$>
     {
         self.willAccessValueForKey(<$managedObjectClassName$>Attributes.<$Attribute.name$>.rawValue)
         let <$Attribute.name$> = self.primitiveValueForKey(<$managedObjectClassName$>Attributes.<$Attribute.name$>.rawValue) as? NSNumber
@@ -67,7 +67,7 @@ class _<$managedObjectClassName$>: <$customSuperentity$> {
     }
 <$else$>
     @NSManaged public
-    var <$Attribute.name$>: NSNumber?
+    var <$Attribute.name$>: NSNumber<$if Attribute.isOptional$>?<$endif$>
 <$endif$>
 <$else$>
 <$if Attribute.isReadonly$>
